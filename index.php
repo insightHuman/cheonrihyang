@@ -1485,9 +1485,7 @@ if (defined('_INDEX_')) { // index에서만 실행
             el.innerText = `${current} / ${total}`;
          });
       }
-
-
-
+      
    } else {
 
       $(window).on('load', function() {
