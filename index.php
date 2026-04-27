@@ -1485,7 +1485,7 @@ if (defined('_INDEX_')) { // index에서만 실행
             el.innerText = `${current} / ${total}`;
          });
       }
-      
+
    } else {
 
       $(window).on('load', function() {
@@ -1597,16 +1597,12 @@ if (defined('_INDEX_')) { // index에서만 실행
 
          if (!contentWrap) return;
 
-         // 설정 값
          const startOffset = window.innerHeight / 2; // 화면의 50% 지점
          const wrapTop = contentWrap.offsetTop;
          const wrapHeight = contentWrap.offsetHeight;
 
-         // 1. 현재 "판단 기준선"의 위치 (현재 스크롤 위치 + 화면 높이의 절반)
          const currentLine = window.scrollY + startOffset;
 
-         // 2. 진행률(progress) 계산
-         // (기준선 - 요소시작지점) / 요소전체높이
          let progress = (currentLine - wrapTop) / wrapHeight;
 
          // 진행률 제한 (0 ~ 100%)
