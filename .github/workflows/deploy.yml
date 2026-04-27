@@ -1,0 +1,32 @@
+name: Deploy to Cafe24 via Git-FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 전체 히스토리를 가져와야 변경점 계산 가능
+
+      # (빌드 과정이 필요하면 여기에 npm install && npm run build 등을 추가)
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          port: ${{ secrets.FTP_PORT }} # 보통 SFTP는 22
+          protocol: ftp # sftp 명시 필수
+          local-dir: ./ # 업로드할 로컬 폴더 (예: ./dist/)
+          server-dir: ./ # 서버 업로드 경로
+          exclude: | # 업로드 제외 파일 설정 (매우 중요)
+            **/.git**
+            **/.github**
+            **/node_modules**
