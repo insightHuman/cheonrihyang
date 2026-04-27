@@ -24,6 +24,7 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           port: ${{ secrets.FTP_PORT }} # 보통 SFTP는 22
           protocol: ftp # sftp 명시 필수
+          dangerous-clean-slate: true
           local-dir: ./ # 업로드할 로컬 폴더 (예: ./dist/)
           server-dir: ./ # 서버 업로드 경로
           exclude: | # 업로드 제외 파일 설정 (매우 중요)
