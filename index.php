@@ -1609,7 +1609,6 @@ if (defined('_INDEX_')) { // index에서만 실행
          progress = Math.max(0, Math.min(100, progress * 100));
          gaze.style.height = `${progress}%`;
 
-         // 3. 인덱스 계산 (4단계이므로 25%씩)
          // 좀 더 부드러운 전환을 위해 Math.floor를 사용할 수도 있습니다.
          let activeIndex = Math.floor(progress / 25.25);
          if (activeIndex >= 4) activeIndex = 3; // 100%일 때 예외 처리
