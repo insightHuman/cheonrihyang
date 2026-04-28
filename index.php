@@ -1605,7 +1605,6 @@ if (defined('_INDEX_')) { // index에서만 실행
 
          let progress = (currentLine - wrapTop) / wrapHeight;
 
-         // 진행률 제한 (0 ~ 100%)
          progress = Math.max(0, Math.min(100, progress * 100));
          gaze.style.height = `${progress}%`;
 
