@@ -9,7 +9,7 @@ include_once(G5_PATH . '/head.php');
 
 <?php
 if (defined('_INDEX_')) { // index에서만 실행
-   // include_once(G5_PATH . '/bbs/newwin.inc.php');
+   include_once(G5_PATH . '/bbs/newwin.inc.php');
 }
 ?>
 
